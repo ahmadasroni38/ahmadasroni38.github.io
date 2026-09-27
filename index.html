@@ -1,216 +1,103 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <!-- Pengaturan dasar halaman -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Halaman profil Ahmad Asroni, dosen Pemrograman Web">
     <title>Profil - Ahmad Asroni</title>
 
-    <!-- CSS ditulis di dalam tag <style> agar semua ada di satu file -->
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            font-family: "Segoe UI", Arial, sans-serif;
-            line-height: 1.6;
-            color: #1f2937;
-            background-color: #f3f4f6;
-        }
-
-        /* ===== Header ===== */
-        header {
-            background: linear-gradient(135deg, #2563eb, #7c3aed);
-            color: white;
-            text-align: center;
-            padding: 60px 20px;
-        }
-
-        .foto {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 4px solid white;
-            background-color: #e5e7eb;
-            color: #2563eb;
-            font-size: 48px;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 16px;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 32px;
-        }
-
-        header p {
-            margin: 8px 0 0;
-            opacity: 0.9;
-        }
-
-        /* ===== Navigasi ===== */
-        nav {
-            background-color: white;
-            text-align: center;
-            padding: 12px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
-        }
-
-        nav a {
-            color: #2563eb;
-            text-decoration: none;
-            margin: 0 12px;
-            font-weight: 600;
-        }
-
-        nav a:hover {
-            text-decoration: underline;
-        }
-
-        /* ===== Konten utama ===== */
-        main {
-            max-width: 800px;
-            margin: 30px auto;
-            padding: 0 16px;
-        }
-
-        section {
-            background-color: white;
-            border-radius: 12px;
-            padding: 24px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
-        }
-
-        section h2 {
-            margin-top: 0;
-            color: #2563eb;
-            border-bottom: 2px solid #e5e7eb;
-            padding-bottom: 8px;
-        }
-
-        /* Daftar skill ditampilkan seperti "badge" */
-        .skill {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .skill li {
-            background-color: #eef2ff;
-            color: #4338ca;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-weight: 600;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th, td {
-            text-align: left;
-            padding: 10px;
-            border-bottom: 1px solid #e5e7eb;
-        }
-
-        th {
-            background-color: #f9fafb;
-        }
-
-        a {
-            color: #2563eb;
-        }
-
-        /* ===== Footer ===== */
-        footer {
-            text-align: center;
-            padding: 20px;
-            color: #6b7280;
-            font-size: 14px;
-        }
-    </style>
+    <!-- Memuat Tailwind CSS lewat CDN, tanpa perlu install -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body>
 
-    <!-- Bagian atas: foto, nama, dan jabatan -->
-    <header>
-        <!-- Ganti dengan <img class="foto" src="foto.jpg" alt="Foto saya"> jika punya foto -->
-        <div class="foto">A</div>
-        <h1>Halo, saya Asroni</h1>
-        <p>Dosen Pemrograman Web</p>
+<!-- bg-slate-100: warna latar abu muda, text-slate-800: warna teks -->
+<body class="bg-slate-100 text-slate-800">
+
+    <!-- Header: nama dan jabatan -->
+    <header class="bg-white border-b border-slate-200">
+        <div class="max-w-4xl mx-auto px-4 py-10 text-center">
+            <!-- rounded-full: membuat lingkaran untuk foto profil -->
+            <img src="https://github.com/ahmadasroni38.png" alt="Foto profil"
+                 class="w-28 h-28 rounded-full mx-auto mb-4 border-4 border-slate-200">
+            <h1 class="text-3xl font-bold">Halo, saya Asroni</h1>
+            <p class="text-slate-500 mt-1">Dosen Pemrograman Web</p>
+        </div>
+
+        <!-- Navigasi: href="#id" melompat ke bagian dengan id tersebut -->
+        <nav class="flex justify-center gap-6 pb-4 text-sm font-semibold">
+            <a href="#tentang" class="text-slate-600 hover:text-blue-600">Tentang</a>
+            <a href="#skill" class="text-slate-600 hover:text-blue-600">Skill</a>
+            <a href="#mengajar" class="text-slate-600 hover:text-blue-600">Mengajar</a>
+            <a href="#kontak" class="text-slate-600 hover:text-blue-600">Kontak</a>
+        </nav>
     </header>
 
-    <!-- Menu navigasi: href="#id" akan melompat ke section dengan id tersebut -->
-    <nav>
-        <a href="#tentang">Tentang</a>
-        <a href="#skill">Skill</a>
-        <a href="#mengajar">Mengajar</a>
-        <a href="#kontak">Kontak</a>
-    </nav>
+    <!-- grid md:grid-cols-2: 1 kolom di HP, 2 kolom di layar lebar -->
+    <main class="max-w-4xl mx-auto px-4 py-10 grid md:grid-cols-2 gap-6">
 
-    <main>
-        <section id="tentang">
-            <h2>Tentang Saya</h2>
-            <p>
-                Saya dosen yang mengajar mata kuliah <strong>Pemrograman Web</strong>.
-                Saya senang membuat website dan berbagi ilmu tentang pengembangan web
-                kepada mahasiswa.
-            </p>
+        <!-- Card: gambar latar dipasang lewat style, bg-cover agar gambar memenuhi card -->
+        <section id="tentang"
+                 class="rounded-xl overflow-hidden shadow bg-cover bg-center"
+                 style="background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800');">
+            <!-- bg-black/60: lapisan hitam transparan 60% agar teks tetap terbaca -->
+            <div class="bg-black/60 h-full p-6 text-white">
+                <h2 class="text-xl font-bold mb-2">Tentang Saya</h2>
+                <p class="text-slate-200">
+                    Saya dosen yang mengajar mata kuliah Pemrograman Web.
+                    Saya senang membuat website dan berbagi ilmu kepada mahasiswa.
+                </p>
+            </div>
         </section>
 
-        <section id="skill">
-            <h2>Skill</h2>
-            <ul class="skill">
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>JavaScript</li>
-                <li>PHP</li>
-                <li>MySQL</li>
-            </ul>
+        <section id="skill"
+                 class="rounded-xl overflow-hidden shadow bg-cover bg-center"
+                 style="background-image: url('https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800');">
+            <div class="bg-black/60 h-full p-6 text-white">
+                <h2 class="text-xl font-bold mb-3">Skill</h2>
+                <!-- flex-wrap: badge turun ke baris baru jika tidak muat -->
+                <ul class="flex flex-wrap gap-2">
+                    <li class="bg-white/20 px-3 py-1 rounded-full text-sm">HTML</li>
+                    <li class="bg-white/20 px-3 py-1 rounded-full text-sm">CSS</li>
+                    <li class="bg-white/20 px-3 py-1 rounded-full text-sm">JavaScript</li>
+                    <li class="bg-white/20 px-3 py-1 rounded-full text-sm">PHP</li>
+                    <li class="bg-white/20 px-3 py-1 rounded-full text-sm">MySQL</li>
+                </ul>
+            </div>
         </section>
 
-        <section id="mengajar">
-            <h2>Mata Kuliah</h2>
-            <table>
-                <tr>
-                    <th>No</th>
-                    <th>Mata Kuliah</th>
-                    <th>Materi</th>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Pemrograman Web</td>
-                    <td>HTML, CSS, JavaScript</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Pemrograman Web Lanjut</td>
-                    <td>PHP dan MySQL</td>
-                </tr>
-            </table>
+        <section id="mengajar"
+                 class="rounded-xl overflow-hidden shadow bg-cover bg-center"
+                 style="background-image: url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800');">
+            <div class="bg-black/60 h-full p-6 text-white">
+                <h2 class="text-xl font-bold mb-2">Mata Kuliah</h2>
+                <!-- list-disc: menampilkan tanda bullet, pl-5: jarak kiri -->
+                <ul class="list-disc pl-5 text-slate-200 space-y-1">
+                    <li>Pemrograman Web</li>
+                    <li>Basis Data</li>
+                </ul>
+            </div>
         </section>
 
-        <section id="kontak">
-            <h2>Kontak</h2>
-            <ul>
-                <li>GitHub: <a href="https://github.com/ahmadasroni38" target="_blank">github.com/ahmadasroni38</a></li>
-                <li>Email: <a href="mailto:email@contoh.com">email@contoh.com</a></li>
-            </ul>
+        <section id="kontak"
+                 class="rounded-xl overflow-hidden shadow bg-cover bg-center"
+                 style="background-image: url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=800');">
+            <div class="bg-black/60 h-full p-6 text-white">
+                <h2 class="text-xl font-bold mb-2">Kontak</h2>
+                <p class="text-slate-200">
+                    GitHub:
+                    <a href="https://github.com/ahmadasroni38" target="_blank"
+                       class="underline hover:text-blue-300">ahmadasroni38</a>
+                </p>
+                <p class="text-slate-200">
+                    Email:
+                    <a href="mailto:email@contoh.com" class="underline hover:text-blue-300">email@contoh.com</a>
+                </p>
+            </div>
         </section>
+
     </main>
 
-    <footer>
-        <p>&copy; 2026 Ahmad Asroni &mdash; Dibuat dengan HTML &amp; CSS, di-hosting di GitHub Pages</p>
+    <footer class="text-center text-sm text-slate-500 pb-8">
+        &copy; 2026 Ahmad Asroni &middot; Di-hosting di GitHub Pages
     </footer>
 
 </body>
